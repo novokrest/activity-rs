@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 
+import AuthActions from '../actions/AuthActions';
+import AuthStore from '../stores/AuthStore';
+
 class HeaderComponent extends Component {
     constructor() {
         super();
         this.state = {
-            authenticated: false
+            authenticated: AuthStore.isAuthenticated()
         };
 
         this.login = this.login.bind(this);
@@ -13,11 +16,19 @@ class HeaderComponent extends Component {
     }
 
     login() {
-        alert('Login');
+        this.props.lock.show((err, profile, token) => {
+            if (err) {
+                alert(err);
+                return;
+            }
+            AuthActions.logInUser(profile, token);
+            this.setState({authenticated: true});
+        });
     }
 
     logout() {
-        alert('Logout');
+        AuthActions.logOutUser();
+        this.setState({authenticated: false});
     }
 
     render() {
@@ -29,8 +40,11 @@ class HeaderComponent extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
-                    <NavItem onClick={this.login}>Login</NavItem>
-                    <NavItem onClick={this.logout}>Logout</NavItem>
+                    { !this.state.authenticated ? (
+                        <NavItem onClick={this.login}>Login</NavItem>
+                      ) : (
+                        <NavItem onClick={this.logout}>Logout</NavItem>
+                      ) }
                 </Nav>
             </Navbar>
         );

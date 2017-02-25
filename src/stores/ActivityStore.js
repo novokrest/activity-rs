@@ -53,6 +53,8 @@ ActivityStore.dispatchToken = AppDispatcher.register(action => {
         case ActivityConstants.RECEIVE_ACTIVITY:
             alert(action.message);
             break;
+        default:
+            return;
     }
 
     ActivityStore.emitChange();
