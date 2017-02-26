@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 import App from './App'
 import Index from './Index'
 import ActivityDetail from './ActivityDetail'
+import Registration from './register/Registration'
 
 class Root extends Component {
     render() {
@@ -12,6 +13,7 @@ class Root extends Component {
                 <Route path='/' component={App}>
                     <IndexRoute component={Index} />
                     <Route path='/activity/:id' component={ActivityDetail} />
+                    <Route path='/register' component={Registration} />
                 </Route>
             </Router>
         );
