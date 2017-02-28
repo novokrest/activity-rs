@@ -7,6 +7,22 @@ class Index extends Component {
         this.state = {
             authenticated: AuthStore.isAuthenticated()
         }
+
+        this.onChange = this.onChange.bind(this);
+    }
+
+    componentWillMount() {
+        AuthStore.addChangeListener(this.onChange);
+    }
+
+    componentWillUnmount() {
+        AuthStore.removeChangeListener(this.onChange);
+    }
+
+    onChange() {
+        this.setState({
+            authenticated: AuthStore.isAuthenticated()
+        });
     }
 
     render() {

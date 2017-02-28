@@ -15,15 +15,33 @@ class HeaderComponent extends Component {
         this.logout = this.logout.bind(this);
     }
 
-    login() {
-        this.props.lock.show((err, profile, token) => {
-            if (err) {
-                alert(err);
-                return;
-            }
-            AuthActions.logInUser(profile, token);
-            this.setState({authenticated: true});
+    componentWillMount() {
+        var self = this;
+        var lock = this.props.lock;
+        lock.on('authenticated', authResult => {
+            var token = authResult.accessToken;
+            lock.getUserInfo(authResult.accessToken, (err, profile) => {
+                if (err) {
+                    alert(err);
+                    return;
+                }
+                AuthActions.logInUser(profile, token);
+                self.setState({authenticated: true});
+            });
         });
+        lock.on('authorization_error', err => {
+            alert(err);
+        });
+    }
+
+    componentWillUnmount() {
+        var lock = this.props.lock;
+        lock.removeAllListeners('authenticated');
+        lock.removeAllListeners('authorization_error');
+    }
+
+    login() {
+        this.props.lock.show();
     }
 
     logout() {
