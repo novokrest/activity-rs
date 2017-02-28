@@ -11,7 +11,7 @@ function createActivityListItem(activity) {
     );
 }
 
-class ActivitiesComponent extends Component {
+class ActivityListComponent extends Component {
     constructor() {
         super();
 
@@ -55,4 +55,4 @@ class ActivitiesComponent extends Component {
     }
 }
 
-export default ActivitiesComponent;
+export default ActivityListComponent;

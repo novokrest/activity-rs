@@ -5,6 +5,7 @@ import App from './App'
 import Index from './Index'
 import ActivityDetail from './ActivityDetail'
 import Registration from './register/Registration'
+import Activities from './activities/Activities'
 
 class Root extends Component {
     render() {
@@ -14,6 +15,7 @@ class Root extends Component {
                     <IndexRoute component={Index} />
                     <Route path='/activity/:id' component={ActivityDetail} />
                     <Route path='/register' component={Registration} />
+                    <Route path='/activities' component={Activities} />
                 </Route>
             </Router>
         );

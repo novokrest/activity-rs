@@ -13,7 +13,7 @@ class ActivityFieldsComponent extends Component {
             <div>
                 <div>
                     <label>Name</label>
-                    <input type="text" onChange={this.setValue.bind(this, 'name')} 
+                    <input type="text" onChange={this.setValue.bind(this, 'name')}
                                        defaultValue={this.props.fieldValues.name} />
                 </div>
                 <div>
@@ -35,7 +35,6 @@ class ActivityFieldsComponent extends Component {
     saveAndContinue(e) {
         e.preventDefault();
 
-        console.log(this.fieldValues);
         this.props.saveValues(this.fieldValues);
         this.props.nextStep();
     }

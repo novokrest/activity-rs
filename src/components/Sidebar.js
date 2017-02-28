@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Activities from './Activities';
+import ActivityList from './ActivityList';
 
 class SidebarComponent extends Component {
     render() {
         return (
-            <Activities />
+            <ActivityList />
         );
     }
 }

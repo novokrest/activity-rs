@@ -1,4 +1,8 @@
 /* Base Application Styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: #fff;
   background: #222;
