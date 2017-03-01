@@ -6,6 +6,7 @@ var _activities = [
         name: "Development of activity registration system",
         tags: ['js', 'react', 'express', 'education'],
         description: 'Learning React',
+        image: 'react-logo.png',
         day: new Date(),
         beginTime: '13:45:00',
         endTime: '15:45:00'
@@ -15,13 +16,15 @@ var _activities = [
         name: "Learning Scala",
         tags: ['scala', 'java', 'education'],
         description: 'Continuing learning scala syntax',
+        image: 'scala-logo.png',
         day: new Date(),
         beginTime: '16:00:00',
         endTime: '18:00:00'
     },
     {
         id: 3,
-        name: 'Home loto app'
+        name: 'Home loto app',
+        image: ''
     }
 ];
 
