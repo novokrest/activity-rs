@@ -1,5 +1,6 @@
 require('normalize.css/normalize.css');
 require('bootstrap/dist/css/bootstrap.min.css');
+require('../styles/App.css');
 
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';

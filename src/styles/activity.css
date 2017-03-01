@@ -1,0 +1,22 @@
+.activities {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.activity {
+    position: relative;
+
+    margin: 20px 0;
+    max-height: 125px;
+    
+    display: block;
+    overflow: hidden;
+
+    list-style-type: none;
+
+    color: #2c3e50;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0 3px 0 #eee;
+}

@@ -1,3 +1,5 @@
+require('../../styles/activity.css');
+
 import React, {Component} from 'react';
 import Activity from './Activity';
 import ActivityStore from '../../stores/ActivityStore';
@@ -29,9 +31,9 @@ class ActivitiesComponent extends Component {
     render() {
         var activityComponents = this.state.activities.map(activity => (<Activity key={activity.id} activity={activity} />));
         return (
-            <div className='activities'>
+            <ul className='activities'>
                 {activityComponents}
-            </div>
+            </ul>
         );
     }
 
